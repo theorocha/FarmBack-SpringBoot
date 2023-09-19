@@ -3,6 +3,7 @@ package com.MFTest.Farm.controllers;
 import com.MFTest.Farm.entities.Owner;
 import com.MFTest.Farm.services.OwnerServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.MFTest.Farm.repositories.OwnerRepository;
 
@@ -27,5 +28,11 @@ public class OwnerController {
     @PostMapping
     public void saveOwner(@RequestBody Owner owner){
         ownerService.saveOwner(owner);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        ownerService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

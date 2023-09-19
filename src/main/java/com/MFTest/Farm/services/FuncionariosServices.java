@@ -26,4 +26,8 @@ public class FuncionariosServices {
     public void saveFuncionario(Funcionario F){
         funcionariosRepository.save(F);
     }
+
+    public void delete(Integer id){
+        funcionariosRepository.deleteById(id);
+    }
 }

@@ -35,6 +35,9 @@ public class PastoServices {
             return Optional.empty();
         }
     }
+    public void delete(Integer id){
+        pastoRepository.deleteById(id);
+    }
 
 }
 

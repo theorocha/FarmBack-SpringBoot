@@ -24,4 +24,7 @@ public class GadoServices {
     public void saveGado(Gado gado){
         gadoRepository.save(gado);
     }
+    public void delete(Integer id){
+        gadoRepository.deleteById(id);
+    }
 }

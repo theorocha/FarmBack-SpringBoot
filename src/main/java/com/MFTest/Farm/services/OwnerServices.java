@@ -22,7 +22,9 @@ public class OwnerServices {
     public void saveOwner(Owner owner) {
         ownerRepository.save(owner);
     }
-
+    public void delete(Integer id){
+        ownerRepository.deleteById(id);
+    }
 
 
 }

@@ -4,6 +4,7 @@ import com.MFTest.Farm.entities.Farm;
 import com.MFTest.Farm.entities.Gado;
 import com.MFTest.Farm.services.FarmServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,17 +18,23 @@ public class FarmController {
     private FarmServices farmServices;
 
     @GetMapping
-    public List<Farm> getAllFarm(){
+    public List<Farm> getAllFarm() {
         return farmServices.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Farm> getFarmByid(@PathVariable int id){
+    public Optional<Farm> getFarmByid(@PathVariable int id) {
         return farmServices.getFarmByid(id);
     }
 
     @PostMapping
-    public void saveFarm(@RequestBody Farm farm){
+    public void saveFarm(@RequestBody Farm farm) {
         farmServices.saveFarm(farm);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        farmServices.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

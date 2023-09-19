@@ -23,15 +23,15 @@ public class Farm implements Serializable {
     private int inscricao;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "farm",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "farm",cascade = CascadeType.ALL, orphanRemoval = true)
     List<Pasto> pastos = new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "farm", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "farm", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Owner> owners = new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "farm",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "farm",cascade = CascadeType.ALL,orphanRemoval = true)
     List<Funcionario> funcionarios = new ArrayList<>();
 
     public Farm(String nome, int inscricao) {

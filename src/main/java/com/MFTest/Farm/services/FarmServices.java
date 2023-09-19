@@ -24,4 +24,8 @@ public class FarmServices {
     public void saveFarm(Farm Farm){
         farmRepository.save(Farm);
     }
+
+    public void delete(Integer id){
+        farmRepository.deleteById(id);
+    }
 }

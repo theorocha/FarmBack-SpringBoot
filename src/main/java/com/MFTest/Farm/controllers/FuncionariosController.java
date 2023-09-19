@@ -3,6 +3,7 @@ package com.MFTest.Farm.controllers;
 import com.MFTest.Farm.entities.Funcionario;
 import com.MFTest.Farm.services.FuncionariosServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +28,12 @@ public class FuncionariosController {
     @PostMapping
     public void savefuncionarios(@RequestBody Funcionario funcionario){
         funcionariosServices.saveFuncionario(funcionario);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id){
+        funcionariosServices.delete(id);
+        return ResponseEntity.noContent().build();
     }
     
 }

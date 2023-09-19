@@ -30,7 +30,7 @@ public class Pasto implements Serializable {
     private Farm farm;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "pasto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pasto", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Gado> gados = new ArrayList<>();
 
 

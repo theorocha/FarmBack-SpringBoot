@@ -4,6 +4,7 @@ import com.MFTest.Farm.entities.Gado;
 import com.MFTest.Farm.entities.Pasto;
 import com.MFTest.Farm.services.PastoServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.MFTest.Farm.repositories.PastoRepository;
 
@@ -35,6 +36,11 @@ public class PastoController {
     @GetMapping("/{pasto_id}/gados")
     public Optional<List<Gado>> getGadoByPasto(@PathVariable int pasto_id){
         return pastoServices.gadoPorPasto(pasto_id);
+    }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        pastoServices.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
