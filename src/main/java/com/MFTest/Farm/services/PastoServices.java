@@ -2,6 +2,7 @@ package com.MFTest.Farm.services;
 
 import com.MFTest.Farm.entities.Gado;
 import com.MFTest.Farm.entities.Pasto;
+import com.MFTest.Farm.entities.Pasto;
 import com.MFTest.Farm.repositories.PastoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,13 @@ public class PastoServices {
         pastoRepository.deleteById(id);
     }
 
+    public Pasto update(Integer id, Pasto obj){
+        Pasto entity = pastoRepository.getReferenceById(id);
+        updateData(entity,obj);
+        return pastoRepository.save(entity);
+    }
+    private void updateData(Pasto entity, Pasto obj) {
+        entity.setNome(obj.getNome());
+    }
 }
 

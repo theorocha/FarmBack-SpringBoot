@@ -2,6 +2,7 @@ package com.MFTest.Farm.controllers;
 
 import com.MFTest.Farm.entities.Farm;
 import com.MFTest.Farm.entities.Gado;
+import com.MFTest.Farm.entities.Farm;
 import com.MFTest.Farm.services.FarmServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,5 +37,11 @@ public class FarmController {
     public ResponseEntity<Void> delete(@PathVariable int id) {
         farmServices.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Farm> update(@PathVariable int id, @RequestBody Farm obj){
+        obj = farmServices.update(id,obj);
+        return ResponseEntity.ok().body(obj);
     }
 }

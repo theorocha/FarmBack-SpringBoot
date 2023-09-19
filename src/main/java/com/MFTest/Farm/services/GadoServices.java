@@ -1,6 +1,7 @@
 package com.MFTest.Farm.services;
 
 import com.MFTest.Farm.entities.Gado;
+import com.MFTest.Farm.entities.Gado;
 import com.MFTest.Farm.repositories.GadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,15 @@ public class GadoServices {
     }
     public void delete(Integer id){
         gadoRepository.deleteById(id);
+    }
+    public Gado update(Integer id, Gado obj){
+        Gado entity = gadoRepository.getReferenceById(id);
+        updateData(entity,obj);
+        return gadoRepository.save(entity);
+    }
+
+    private void updateData(Gado entity, Gado obj) {
+        entity.setPeso(obj.getPeso());
+        entity.setPasto(obj.getPasto());
     }
 }

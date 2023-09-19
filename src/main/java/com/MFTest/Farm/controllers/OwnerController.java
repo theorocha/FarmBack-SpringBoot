@@ -1,5 +1,6 @@
 package com.MFTest.Farm.controllers;
 
+import com.MFTest.Farm.entities.Gado;
 import com.MFTest.Farm.entities.Owner;
 import com.MFTest.Farm.services.OwnerServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,11 @@ public class OwnerController {
     public ResponseEntity<Void> delete(@PathVariable int id) {
         ownerService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Owner> update(@PathVariable int id, @RequestBody Owner obj){
+        obj = ownerService.update(id,obj);
+        return ResponseEntity.ok().body(obj);
     }
 }

@@ -1,6 +1,7 @@
 package com.MFTest.Farm.services;
 
 import com.MFTest.Farm.entities.Farm;
+import com.MFTest.Farm.entities.Farm;
 import com.MFTest.Farm.repositories.FarmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,15 @@ public class FarmServices {
 
     public void delete(Integer id){
         farmRepository.deleteById(id);
+    }
+
+    public Farm update(Integer id, Farm obj){
+        Farm entity = farmRepository.getReferenceById(id);
+        updateData(entity,obj);
+        return farmRepository.save(entity);
+    }
+    private void updateData(Farm entity, Farm obj) {
+        entity.setNome(obj.getNome());
+        entity.setInscricao(obj.getInscricao());
     }
 }

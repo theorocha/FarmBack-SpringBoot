@@ -1,6 +1,7 @@
 package com.MFTest.Farm.controllers;
 
 import com.MFTest.Farm.entities.Gado;
+import com.MFTest.Farm.entities.Owner;
 import com.MFTest.Farm.entities.Pasto;
 import com.MFTest.Farm.services.PastoServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,12 @@ public class PastoController {
     public ResponseEntity<Void> delete(@PathVariable int id) {
         pastoServices.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Pasto> update(@PathVariable int id, @RequestBody Pasto obj){
+        obj = pastoServices.update(id,obj);
+        return ResponseEntity.ok().body(obj);
     }
 
 }

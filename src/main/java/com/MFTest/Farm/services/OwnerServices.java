@@ -1,6 +1,7 @@
 package com.MFTest.Farm.services;
 
 import com.MFTest.Farm.entities.Owner;
+import com.MFTest.Farm.entities.Owner;
 import com.MFTest.Farm.repositories.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,16 @@ public class OwnerServices {
     }
     public void delete(Integer id){
         ownerRepository.deleteById(id);
+    }
+
+    public Owner update(Integer id, Owner obj){
+        Owner entity = ownerRepository.getReferenceById(id);
+        updateData(entity,obj);
+        return ownerRepository.save(entity);
+    }
+
+    private void updateData(Owner entity, Owner obj) {
+        entity.setNome(obj.getNome());
     }
 
 

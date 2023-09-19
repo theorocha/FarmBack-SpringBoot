@@ -30,4 +30,15 @@ public class FuncionariosServices {
     public void delete(Integer id){
         funcionariosRepository.deleteById(id);
     }
+
+    public Funcionario update(Integer id, Funcionario f){
+        Funcionario entity = funcionariosRepository.getReferenceById(id);
+        updateData(entity,f);
+        return funcionariosRepository.save(entity);
+    }
+
+    private void updateData(Funcionario entity, Funcionario f) {
+        entity.setNome(f.getNome());
+        entity.setDta_nasc(f.getDta_nasc());
+    }
 }

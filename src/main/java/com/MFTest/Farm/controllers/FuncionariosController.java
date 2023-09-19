@@ -35,5 +35,11 @@ public class FuncionariosController {
         funcionariosServices.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Funcionario> update(@PathVariable int id, @RequestBody Funcionario funcionario){
+        funcionario = funcionariosServices.update(id,funcionario);
+        return ResponseEntity.ok().body(funcionario);
+    }
     
 }

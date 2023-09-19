@@ -1,6 +1,7 @@
 package com.MFTest.Farm.controllers;
 
 import com.MFTest.Farm.entities.Gado;
+import com.MFTest.Farm.entities.Gado;
 import com.MFTest.Farm.services.GadoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,12 @@ public class GadoController {
     public ResponseEntity<Void> delete(@PathVariable int id){
         gadoServices.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Gado> update(@PathVariable int id, @RequestBody Gado obj){
+        obj = gadoServices.update(id,obj);
+        return ResponseEntity.ok().body(obj);
     }
 
 
