@@ -1,13 +1,14 @@
 package com.MFTest.Farm.controllers;
 
+
 import com.MFTest.Farm.entities.Gado;
-import com.MFTest.Farm.entities.Owner;
+
 import com.MFTest.Farm.entities.Pasto;
 import com.MFTest.Farm.services.PastoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.MFTest.Farm.repositories.PastoRepository;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +20,6 @@ public class PastoController {
     @Autowired
     private PastoServices pastoServices;
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<Pasto>getAll() {
         return pastoServices.findAllPastos();
@@ -49,5 +49,8 @@ public class PastoController {
         obj = pastoServices.update(id,obj);
         return ResponseEntity.ok().body(obj);
     }
+
+
+
 
 }

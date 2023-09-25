@@ -17,7 +17,6 @@ public class OwnerController {
     @Autowired
     private OwnerServices ownerService;
 
-
     @GetMapping
     public List<Owner> findAll(){
         return ownerService.findAllOwners();
