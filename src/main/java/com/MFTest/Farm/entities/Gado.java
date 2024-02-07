@@ -23,7 +23,7 @@ public class Gado implements Serializable {
     private String raca;
 
     @Enumerated(EnumType.STRING)
-    private SexoEnum sexoEnum;
+    private SexoEnum sexo;
 
     @ManyToOne
     @JoinColumn(name = "pasto_id")
@@ -32,7 +32,7 @@ public class Gado implements Serializable {
     public Gado(int peso, String raca, SexoEnum sexoEnum, Pasto pasto) {
         this.peso = peso;
         this.raca = raca;
-        this.sexoEnum = sexoEnum;
+        this.sexo = sexoEnum;
         this.pasto = pasto;
     }
 }
