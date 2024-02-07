@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("owners")
+@RequestMapping("owner")
 public class OwnerController {
     @Autowired
     private OwnerServices ownerService;

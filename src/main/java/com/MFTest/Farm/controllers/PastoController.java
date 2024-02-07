@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("pastos")
+@RequestMapping("pasto")
 public class PastoController {
 
     @Autowired
@@ -34,7 +34,7 @@ public class PastoController {
         pastoServices.savePasto(p);
     }
 
-    @GetMapping("/{pasto_id}/gados")
+    @GetMapping("/{pasto_id}/gado")
     public Optional<List<Gado>> getGadoByPasto(@PathVariable int pasto_id){
         return pastoServices.gadoPorPasto(pasto_id);
     }

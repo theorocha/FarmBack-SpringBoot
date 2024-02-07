@@ -44,7 +44,7 @@ public class FarmController {
         return ResponseEntity.ok().body(obj);
     }
 
-    @GetMapping(value = "/{id}/funcionarios")
+    @GetMapping(value = "/{id}/funcionario")
     public Optional<List<Funcionario>> getALl_funcionarios(@PathVariable int id){
         return farmServices.getAllFunc(id);
     }
